@@ -106,18 +106,35 @@ class CNNIDSFeatureGenerator(abstract_feature_generator.AbstractFeatureGenerator
             # Load raw packets
             raw_packets = self.__read_raw_packets(injected_raw_packets_path)
 
+            print("raw packets loaded")
+            print(f"raw_packets = {len(raw_packets)}")
+
             # Convert loaded packets to np array with uint8_t size
             packets_array = self.__convert_raw_packets(raw_packets)
-
+            
+            print("packets converted")
+            print(f"packets_array = {len(packets_array)}")      
             # Preprocess packets
             preprocessed_packets = self.__preprocess_raw_packets(packets_array, split_into_nibbles=True)
+
+            print("packets preprocessed")
+            print(f"preprocessed_packets shape = {preprocessed_packets.shape}")
+
 
             # Generate labels
             labels = self.__generate_labels(packets_array, injected_only_packets_array)
 
+            print("labels generated")
+            print("starting aggregation")
+            
             # Aggregate features and labels
             aggregated_X, aggregated_y = self.__aggregate_based_on_window_size(preprocessed_packets, labels)
             aggregated_y = np.array(aggregated_y, dtype='uint8')
+
+            print("aggregated features and labels")
+            print(f"aggregated_X = {aggregated_X.shape}")
+            print(f"aggregated_y = {aggregated_y.shape}")
+
 
             # Concatenate both indoors injected packets
             X = np.concatenate((X, aggregated_X), axis=0, dtype='uint8')
