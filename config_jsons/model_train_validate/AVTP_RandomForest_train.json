@@ -8,11 +8,12 @@
             "multiclass": false,
             "labeling_schema": "AVTP_Intrusion_dataset",
             "dataset": "AVTP_Intrusion_dataset",
-            "sum_x": true
+            "sum_x": true,
+            "var_x": true
         },
         "load_paths": {
-            "X_path": "/teamspace/studios/this_studio/datasets/avtp-intrusion-dataset/processed/X_train_rf_AVTP_Intrusion_dataset_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.npz",
-            "y_path": "/teamspace/studios/this_studio/datasets/avtp-intrusion-dataset/processed/y_train_rf_AVTP_Intrusion_dataset_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.npz"
+            "X_path": "/teamspace/studios/this_studio/datasets/avtp-intrusion-dataset/processed/X_train_rf_AVTP_Intrusion_dataset_Wsize_44_Cols_232_sumVar_Wslide_1_MC_False.npz",
+            "y_path": "/teamspace/studios/this_studio/datasets/avtp-intrusion-dataset/processed/y_train_rf_AVTP_Intrusion_dataset_Wsize_44_Cols_232_sumVar_Wslide_1_MC_False.npz"
         }
     },
     "model_specs": {

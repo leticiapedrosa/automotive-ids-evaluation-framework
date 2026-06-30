@@ -9,7 +9,9 @@ import seaborn as sns
 # CONFIGURAÇÃO DE CAMINHO
 # =====================================================================
 # Pasta onde os dados estão e onde os gráficos SERÃO salvOS diretamente
-PASTA_DADOS = "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/resultados/meu experimento/tow"
+PASTA_DADOS = "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/resultados/meu experimento/avtp"
+
+#"/teamspace/studios/this_studio/automotive-ids-evaluation-framework/resultados/meu experimento/tow"
 
 #"/teamspace/studios/this_studio/automotive-ids-evaluation-framework/resultados/avtp/test/rf"
 #"/teamspace/studios/this_studio/automotive-ids-evaluation-framework/resultados/tow/test/rf"
@@ -43,7 +45,7 @@ def plot_test_metrics():
     # Adicionado o parâmetro 'errorbar=None' para blindar contra duplicidades no agrupamento
     sns.barplot(data=df_melted, x='fold', y='Valor', hue='Métrica', palette=cores)
 
-    plt.title('Random Forest (Tow) - Desempenho das Métricas Finais por Fold', fontsize=12, pad=12, fontweight='bold')
+    plt.title('Random Forest (AEID) - Desempenho das Métricas Finais por Fold', fontsize=12, pad=12, fontweight='bold')
     plt.xlabel('Número do Fold', fontsize=11, labelpad=8)
     plt.ylabel('Score (0 a 1)', fontsize=11, labelpad=8)
     
@@ -102,7 +104,7 @@ def plot_combined_confusion_matrices():
         if i == 0:
             ax.set_ylabel('Real', fontsize=11)
 
-    plt.suptitle('Random Forest - (TOW) - Matrizes de Confusão por Fold', fontsize=13, fontweight='bold', y=1.05)
+    plt.suptitle('Random Forest - (AEID) - Matrizes de Confusão por Fold', fontsize=13, fontweight='bold', y=1.05)
     plt.tight_layout()
 
     caminho_salva = os.path.join(PASTA_DADOS, "melhora-rf_matrizes_confusao_combinadas.png")
@@ -156,7 +158,7 @@ def plot_combined_roc_curves():
         ax.set_xlim([-0.05, 1.05])
         ax.set_ylim([-0.05, 1.05])
 
-    plt.suptitle('Random Forest (TOW) - Curvas ROC por Fold Individual', fontsize=13, fontweight='bold', y=1.05)
+    plt.suptitle('Random Forest (AEID) - Curvas ROC por Fold Individual', fontsize=13, fontweight='bold', y=1.05)
     plt.tight_layout()
 
     caminho_salva = os.path.join(PASTA_DADOS, "melhora-rf-tow_curvas_roc_combinadas.png")
