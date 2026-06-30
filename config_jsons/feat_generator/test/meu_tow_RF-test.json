@@ -8,7 +8,8 @@
         "labeling_schema": "TOW_IDS_dataset_one_class",
         "dataset": "TOW_IDS_dataset",
         "suffix": "test_rf",
-        "sum_x": true
+        "sum_x": true,
+        "var_x": true
     },
     "paths": {
         "training_packets_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/raw/Automotive_Ethernet_with_Attack_original_10_17_20_04_test.pcap",

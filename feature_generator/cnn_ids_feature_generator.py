@@ -17,6 +17,7 @@ AVTP_PACKETS_LENGHT = 438
 DEFAULT_LABELING_SCHEMA = "AVTP_Intrusion_dataset"
 DEFAULT_DATASET = "AVTP_Intrusion"
 DEFAULT_SUM_X = False
+DEFAULT_VAR_X = False
 
 LABELING_SCHEMA_FACTORY = {
     "AVTP_Intrusion_dataset": labeling_schemas.avtp_intrusion_labeling_schema,
@@ -32,13 +33,17 @@ class CNNIDSFeatureGenerator(abstract_feature_generator.AbstractFeatureGenerator
         self._number_of_columns = self._number_of_bytes * 2
         self._labeling_schema = config.get('labeling_schema', DEFAULT_LABELING_SCHEMA)
         self._sum_x = config.get('sum_x', DEFAULT_SUM_X)
+        self._var_x = config.get('var_x', DEFAULT_VAR_X)
         self._data_suffix = config.get('suffix')
 
         self._multiclass = config.get('multiclass', False)
 
         self._dataset = config.get('dataset', DEFAULT_DATASET)
 
-        self._output_path_suffix = f"{self._labeling_schema}_Wsize_{self._window_size}_Cols_{self._number_of_columns}_Wslide_{self._window_slide}_MC_{self._multiclass}_sumX_{self._sum_x}"
+        if self._sum_x and self._var_x:
+            self._output_path_suffix = f"{self._labeling_schema}_Wsize_{self._window_size}_Cols_{self._number_of_columns * 2}_sumVar_Wslide_{self._window_slide}_MC_{self._multiclass}"
+        else:
+            self._output_path_suffix = f"{self._labeling_schema}_Wsize_{self._window_size}_Cols_{self._number_of_columns}_Wslide_{self._window_slide}_MC_{self._multiclass}_sumX_{self._sum_x}"
 
         self._filter_avtp_packets = True if (self._labeling_schema) == "AVTP_Intrusion_dataset" else False
         print(f"filter_avtp_packets = {self._filter_avtp_packets}")
@@ -96,7 +101,9 @@ class CNNIDSFeatureGenerator(abstract_feature_generator.AbstractFeatureGenerator
         raw_injected_only_packets = self.__read_raw_packets(paths_dictionary['injected_only_frame_path'])
         injected_only_packets_array = self.__convert_raw_packets(raw_injected_only_packets)
 
-        if self._sum_x:
+        if self._sum_x and self._var_x:
+            X = np.empty(shape=(0, self._number_of_columns * 2), dtype='float32')
+        elif self._sum_x:
             X = np.empty(shape=(0, self._number_of_columns), dtype='uint8')
         else:
             X = np.empty(shape=(0, self._window_size, self._number_of_columns), dtype='uint8')
@@ -137,7 +144,8 @@ class CNNIDSFeatureGenerator(abstract_feature_generator.AbstractFeatureGenerator
 
 
             # Concatenate both indoors injected packets
-            X = np.concatenate((X, aggregated_X), axis=0, dtype='uint8')
+            _concat_dtype = 'float32' if (self._sum_x and self._var_x) else 'uint8'
+            X = np.concatenate((X, aggregated_X), axis=0, dtype=_concat_dtype)
             y = np.concatenate((y, aggregated_y), axis=0, dtype='uint8')
 
             np.savez(f"{paths_dictionary['output_path']}/X_{self._data_suffix}_{self._output_path_suffix}", X)
@@ -320,7 +328,11 @@ class CNNIDSFeatureGenerator(abstract_feature_generator.AbstractFeatureGenerator
 
             # Get a sequence of data for x
             seq_X = x_data[start_ix:end_ix]
-            if self._sum_x:
+            if self._sum_x and self._var_x:
+                seq_X = np.concatenate(
+                    [np.sum(seq_X, axis=0), np.var(seq_X, axis=0)]
+                ).astype('float32')
+            elif self._sum_x:
                 seq_X = np.sum(seq_X, axis=0)
 
             # Get a squence of data for y
@@ -334,7 +346,8 @@ class CNNIDSFeatureGenerator(abstract_feature_generator.AbstractFeatureGenerator
             y.append(seq_y)
 
         # Make final arrays
-        x_array = np.array(X, dtype='uint8')
+        _array_dtype = 'float32' if self._var_x else 'uint8'
+        x_array = np.array(X, dtype=_array_dtype)
         # y_array = np.array(y, dtype='uint8')
 
         return x_array, y

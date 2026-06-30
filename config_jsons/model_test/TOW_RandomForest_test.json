@@ -8,11 +8,12 @@
             "multiclass": false,
             "labeling_schema": "TOW_IDS_dataset_one_class",
             "dataset": "TOW_IDS_dataset",
-            "sum_x": true
+            "sum_x": true,
+            "var_x": true
         },
         "load_paths": {
-            "X_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/X_test_rf_TOW_IDS_dataset_one_class_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.npz",
-            "y_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/y_test_rf_TOW_IDS_dataset_one_class_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.csv"
+            "X_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/X_test_rf_TOW_IDS_dataset_one_class_Wsize_44_Cols_232_sumVar_Wslide_1_MC_False.npz",
+            "y_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/y_test_rf_TOW_IDS_dataset_one_class_Wsize_44_Cols_232_sumVar_Wslide_1_MC_False.csv"
         }
     },
     "model_specs": {
@@ -27,11 +28,11 @@
             "random_state": 42
         },
         "presaved_paths": {
-            "0": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_23_18_35_18_sklearn_train_val/models/RandomForestClassifier_fold_0.pkl",
-            "1": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_23_18_35_18_sklearn_train_val/models/RandomForestClassifier_fold_1.pkl",
-            "2": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_23_18_35_18_sklearn_train_val/models/RandomForestClassifier_fold_2.pkl",
-            "3": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_23_18_35_18_sklearn_train_val/models/RandomForestClassifier_fold_3.pkl",
-            "4": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_23_18_35_18_sklearn_train_val/models/RandomForestClassifier_fold_4.pkl"
+            "0": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_30_12_11_29_sklearn_train_val/models/RandomForestClassifier_fold_0.pkl",
+            "1": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_30_12_11_29_sklearn_train_val/models/RandomForestClassifier_fold_1.pkl",
+            "2": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_30_12_11_29_sklearn_train_val/models/RandomForestClassifier_fold_2.pkl",
+            "3": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_30_12_11_29_sklearn_train_val/models/RandomForestClassifier_fold_3.pkl",
+            "4": "/teamspace/studios/this_studio/automotive-ids-evaluation-framework/artifacts/2026_06_30_12_11_29_sklearn_train_val/models/RandomForestClassifier_fold_4.pkl"
         }
     }
 }

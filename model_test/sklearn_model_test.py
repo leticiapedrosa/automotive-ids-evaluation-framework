@@ -66,7 +66,7 @@ class SklearnModelTest(abstract_model_test.AbstractModelTest):
         roc_auc = roc_auc_score(y_true, y_pred_prob[:, 1])
 
         # dummy_data = X[0].reshape(1, -1)
-        dummy_data = np.random.rand(64, 116)
+        dummy_data = np.random.rand(64, X.shape[1])
         inference_time = timing.sklearn_inference_time(self._model, dummy_data)
         inference_time = inference_time / len(dummy_data)
 
