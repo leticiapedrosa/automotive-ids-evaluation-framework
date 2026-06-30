@@ -11,8 +11,8 @@
             "sum_x": true
         },
         "load_paths": {
-            "X_path": "/home/leticiap/datasets/avtp-intrusion-dataset/processed/X_train_AVTP_Intrusion_dataset_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.npz",
-            "y_path": "/home/leticiap/datasets/avtp-intrusion-dataset/processed/y_train_AVTP_Intrusion_dataset_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.npz"
+            "X_path": "/teamspace/studios/this_studio/datasets/avtp-intrusion-dataset/processed/X_train_rf_AVTP_Intrusion_dataset_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.npz",
+            "y_path": "/teamspace/studios/this_studio/datasets/avtp-intrusion-dataset/processed/y_train_rf_AVTP_Intrusion_dataset_Wsize_44_Cols_116_Wslide_1_MC_False_sumX_True.npz"
         }
     },
     "model_specs": {
@@ -25,10 +25,6 @@
             "max_features": 3,
             "bootstrap": true,
             "random_state": 42
-        },
-        "paths": {
-            "metrics_output_path":"home/leticiap/automotive-ids-evaluation-framework/results/metrics",
-            "models_output_path":"home/leticiap/automotive-ids-evaluation-framework/results/models"
         }
     }
 }

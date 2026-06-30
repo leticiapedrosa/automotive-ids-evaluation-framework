@@ -10,8 +10,8 @@
             "dataset": "TOW_IDS_dataset"
         },
         "load_paths": {
-            "X_path": "/home/leticiap/datasets/tow-intrusion-dataset/processed/X_train_TOW_IDS_dataset_multi_class_Wsize_44_Cols_116_Wslide_1_MC_False.npz",
-            "y_path": "/home/leticiap/datasets/tow-intrusion-dataset/processed/y_train_TOW_IDS_dataset_multi_class_Wsize_44_Cols_116_Wslide_1_MC_False.csv"
+            "X_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/X_train_TOW_IDS_dataset_multi_class_Wsize_44_Cols_116_Wslide_1_MC_False.npz",
+            "y_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/y_train_TOW_IDS_dataset_multi_class_Wsize_44_Cols_116_Wslide_1_MC_False.csv"
         }
     },
     "model_specs": {
@@ -27,8 +27,8 @@
             "num_outputs": 6
         },
         "paths": {
-            "metrics_output_path":"home/leticiap/automotive-ids-evaluation-framework/results/metrics",
-            "models_output_path":"home/leticiap/automotive-ids-evaluation-framework/results/models"
+            "metrics_output_path":"/teamspace/studios/this_studio/automotive-ids-evaluation-framework/results/metrics",
+            "models_output_path":"/teamspace/studios/this_studio/automotive-ids-evaluation-framework/results/models"
         }
     }
 }

@@ -25,7 +25,11 @@ class SklearnClassifier():
         self._model = Pipeline(pipeline_steps)
 
     def reset(self):
-        self._model = MODELS_FACTORY[self._model_name](**self._model_params)
+        pipeline_steps = [
+            ('scaler', StandardScaler()),
+            ('clf', MODELS_FACTORY[self._model_name](**self._model_params))
+        ]
+        self._model = Pipeline(pipeline_steps)
 
     def train(self, X_data, y_data):
         self._model = self._model.fit(X_data, y_data)

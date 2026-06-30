@@ -11,14 +11,14 @@
         "sum_x": true
     },
     "paths": {
-        "test_packets_path": "/home/leticiap/datasets/tow-intrusion-dataset/raw/Automotive_Ethernet_with_Attack_original_10_17_19_50_training.pcap",
-        "training_packets_path": "/home/leticiap/datasets/tow-intrusion-dataset/raw/Automotive_Ethernet_with_Attack_original_10_17_20_04_test.pcap",
-        "y_test_path": "/home/leticiap/datasets/tow-intrusion-dataset/raw/y_test.csv",
-        "y_train_path": "/home/leticiap/datasets/tow-intrusion-dataset/raw/y_train.csv",
-        "output_path": "/home/leticiap/datasets/tow-intrusion-dataset/processed"
+        "test_packets_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/raw/Automotive_Ethernet_with_Attack_original_10_17_19_50_training.pcap",
+        "training_packets_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/raw/Automotive_Ethernet_with_Attack_original_10_17_20_04_test.pcap",
+        "y_test_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/raw/y_test.csv",
+        "y_train_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/raw/y_train.csv",
+        "output_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed"
     },
     "load_paths": {
-        "X_path": "/home/leticiap/datasets/tow-intrusion-dataset/processed/X_train_TOW_IDS_dataset_one_class_Wsize_44_Cols_116_Wslide_1_MC_False.npz",
-        "y_path": "/home/leticiap/datasets/tow-intrusion-dataset/processed/y_train_TOW_IDS_dataset_one_class_Wsize_44_Cols_116_Wslide_1_MC_False.csv"
+        "X_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/X_train_TOW_IDS_dataset_one_class_Wsize_44_Cols_116_Wslide_1_MC_False.npz",
+        "y_path": "/teamspace/studios/this_studio/datasets/tow-intrusion-dataset/processed/y_train_TOW_IDS_dataset_one_class_Wsize_44_Cols_116_Wslide_1_MC_False.csv"
     }
 }

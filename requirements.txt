@@ -7,3 +7,4 @@ torchvision @ https://download.pytorch.org/whl/cu118/torchvision-0.15.2%2Bcu118-
 torchmetrics==1.2.0
 matplotlib
 trustee
+seaborn

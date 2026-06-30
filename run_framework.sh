@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Paths
-BASE_PATH="/home/leticiap/automotive-ids-evaluation-framework"
+BASE_PATH="/teamspace/studios/this_studio/automotive-ids-evaluation-framework"
 FEAT_GEN_CONFIG_FOLDER="config_jsons/feat_generator"
 MODEL_TRAIN_VALID_CONFIG_FOLDER="config_jsons/model_train_validate"
 MODEL_TEST_CONFIG_FOLDER="config_jsons/model_test"
